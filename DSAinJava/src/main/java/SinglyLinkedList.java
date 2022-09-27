@@ -12,18 +12,50 @@ public class SinglyLinkedList {
         }
         
     }
+    public void display(){
+        listnode current = head;
+        while (current!=null) {
+            System.out.print(current.data + "-->");
+            current=current.next;
+        }
+        System.out.println("Null");
+    }
+    //Insert Node at the beginning of Singly Linked List
+    public void addfirst(int val){
+        listnode test=new listnode(val);
+        test.next=head;
+        head=test;
+    }
+     //Insert Node at the end of Singly Linked List
+    public void addlast(){
+        listnode test1=new listnode(100);
+        if (head==null) {
+            head=test1;
+        }
+        listnode current= head;
+        while(current.next!=null) {
+            current=current.next;
+        }
+        current.next=test1;
+    }
     public static void main(String[] args) {
        SinglyLinkedList list= new SinglyLinkedList();
-       list.head= new listnode(10);
-       listnode second=new listnode(20);
-       listnode third =new listnode(30);
-       listnode fourth =new listnode(40);
+//       list.head= new listnode(10);
+//       listnode second=new listnode(20);
+//       listnode third =new listnode(30);
+//       listnode fourth =new listnode(40);
+//       listnode fifth=new listnode(50);
+//       //Now we will connect them together to form a chain
+//       list.head.next=second;
+//       second.next=third;
+//       third.next=fourth;
        
-       //Now we will connect them together to form a chain
-       list.head.next=second;
-       second.next=third;
-       third.next=fourth;
-    
+       list.addfirst(22);
+       list.addfirst(21);
+       list.addfirst(20);
+       list.addlast();
+       list.display();
+      
     }
     
 }
