@@ -38,6 +38,28 @@ public class SinglyLinkedList {
         }
         current.next=test1;
     }
+    public listnode deletefirst(){
+        if(head==null){
+        return null;   
+        }
+        listnode temp=head;
+        head=head.next;
+        temp.next=null;
+        return temp;
+    }
+    public listnode deletelast(){
+        if(head==null || head.next==null){
+        return head;   
+        }
+        listnode current=head;
+        listnode previous=head;
+        while (current.next!=null) {
+          previous=current;
+          current=current.next;
+        }
+       previous.next=null;
+       return current;
+    }
     public static void main(String[] args) {
        SinglyLinkedList list= new SinglyLinkedList();
 //       list.head= new listnode(10);
@@ -54,6 +76,8 @@ public class SinglyLinkedList {
        list.addfirst(21);
        list.addfirst(20);
        list.addlast();
+       list.deletefirst();
+       list.deletelast();
        list.display();
       
     }
